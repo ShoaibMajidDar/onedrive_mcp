@@ -7,8 +7,6 @@ from summarize import Summmarization
 
 load_dotenv()
 
-file_id = os.getenv('FILE_ID')
-
 mcp = FastMCP(
     name="OneDrive doc summarize",
     host="0.0.0.0",
@@ -16,7 +14,7 @@ mcp = FastMCP(
 )
 
 @mcp.tool()
-def get_file_summary(access_token: str):
+def get_file_summary(access_token: str, file_id: str):
     """
     get the file from oneDrive and then summarize it using llm.
     """
